@@ -98,9 +98,9 @@ exports.forgetPassword = async (req, res, next) => {
   await user.save({ validateBeforeSave: false });
 
   // 4. Send it to user's email
-  const resetURL = `http://localhost:5173/reset-password/${resetToken}`;
+  const resetURL = `https://island-sun-tanning.vercel.app/reset-password/${resetToken}`;
 
-  const message = `Forgot your password? Submit a PATCH request with your new password and passwordConfirm to: ${resetURL}.\nIf you didn't forget your password, please ignore this email!`;
+  const message = `Forgot your password? Submit a PATCH request with your new password to: ${resetURL}.\nIf you didn't forget your password, please ignore this email!`;
 
   const transporter = nodemailer.createTransport({
     service: "Gmail",
