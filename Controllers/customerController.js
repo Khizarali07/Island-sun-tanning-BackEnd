@@ -302,6 +302,9 @@ exports.revertRedemption = async (req, res) => {
       customerPackage.remainingRedemptions >= 0
     ) {
       customerPackage.remainingRedemptions += 1; // Decrease remainingRedemptions by 1
+      if (customerPackage.remainingRedemptions === 0) {
+        customerPackage.status = "expired";
+      }
       if (customerPackage.remainingRedemptions === package.redemptions) {
         customerPackage.status = "unused";
       }
