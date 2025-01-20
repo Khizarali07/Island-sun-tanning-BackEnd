@@ -28,6 +28,5 @@ app.use("/api/v1", customerRouter);
 app.use("/api/v1", packageRouter);
 app.use("/api/v1", bedRouter);
 
-app.listen(3000, () => {
-  console.log(`App running on port ${3000}...`);
-});
+const port = process.env.PORT || 3000;
+app.listen(port, () => console.log(`Server running on port ${port}`));
