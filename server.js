@@ -23,6 +23,9 @@ mongoose
     process.exit(1); // Exit on database connection error
   });
 
+app.get("/", (req, res) => {
+  res.send("Hello, World!");
+});
 app.use("/api/v1", adminRouter);
 app.use("/api/v1", customerRouter);
 app.use("/api/v1", packageRouter);
